@@ -4,7 +4,6 @@ require("dotenv").config();
 //var client = new Twitter(keys.twitter);
 
 var action = process.argv[2];
-var value = process.argv[3];
 
 switch (action) {
   case "my-tweets":
@@ -20,16 +19,16 @@ switch (action) {
     break;
 };
 
-function tweets() {
-var request = require("request");
+//function tweets() {
+//var request = require("request");
 
-request("" function(error, response, body) {
+//request("" function(error, response, body) {
 
-  if (!error && response.statusCode === 200) {
+  //if (!error && response.statusCode === 200) {
 
-  };
-})
-};
+  //};
+//})
+//};
 
 function movie() {
   var request = require("request");
@@ -53,7 +52,8 @@ for (var i = 3; i < nodeArgs.length; i++) {
     if(!error && response.statusCode === 200) {
       console.log("Title: " + JSON.parse(body).Title);
       console.log("Year: " + JSON.parse(body).Year);
-      console.log("Ratings: " + JSON.parse(body).Ratings);
+      console.log("IMDB Rating: " + JSON.parse(body).imdbRating);
+      console.log("Rotten Tomatoes Rating: " + JSON.parse(body).Ratings[1].Value);
       console.log("Country: " + JSON.parse(body).Country);
       console.log("Language: " + JSON.parse(body).Language);
       console.log("Plot: " + JSON.parse(body).Plot);
