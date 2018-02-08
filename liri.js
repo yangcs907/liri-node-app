@@ -1,7 +1,6 @@
 require("dotenv").config();
 
 //var spotify = new Spotify(keys.spotify);
-//var client = new Twitter(keys.twitter);
 
 var action = process.argv[2];
 
@@ -19,16 +18,18 @@ switch (action) {
     break;
 };
 
-//function tweets() {
-//var request = require("request");
+function tweets() {
+var Twitter = require('twitter');
 
-//request("" function(error, response, body) {
+var client = new Twitter(keys.twitter);
 
-  //if (!error && response.statusCode === 200) {
-
-  //};
-//})
-//};
+var params = {screen_name: 'nodejs'};
+client.get('statuses/user_timeline', params, function(error, tweets, response) {
+  if (!error) {
+    console.log(tweets);
+  }
+});
+};
 
 function movie() {
   var request = require("request");
