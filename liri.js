@@ -1,5 +1,6 @@
 require("dotenv").config();
-
+// Import the API keys
+var keys = require("./keys");
 //var spotify = new Spotify(keys.spotify);
 
 var action = process.argv[2];
