@@ -1,7 +1,6 @@
 require("dotenv").config();
 // Import the API keys
 var keys = require("./keys");
-//var spotify = new Spotify(keys.spotify);
 
 var action = process.argv[2];
 
@@ -65,11 +64,23 @@ for (var i = 3; i < nodeArgs.length; i++) {
 };
 
 function spotify() {
+  var Spotify = require("node-spotify-api");
   var nodeArgs = process.argv;
   var songName = "";
 
-  for (var i = 3; i < node.Args.length; i++) {
+  for (var i = 3; i < nodeArgs.length; i++) {
     var songName = nodeArgs[i];
   };
-  var queryUrl = ""
-}
+  var Spotify = require('node-spotify-api');
+
+  var spotify = new Spotify(keys.spotify);
+
+  spotify
+  .search({ type: 'track', query: songName})
+  .then(function(response) {
+    console.log(response);
+  })
+  .catch(function(err) {
+    console.log(err);
+  });
+};
